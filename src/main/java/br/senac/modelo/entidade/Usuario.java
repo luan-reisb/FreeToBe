@@ -11,6 +11,7 @@ public class Usuario {
     private String apelido;
     private String senha;
     private Foto foto;
+    private Estabelecimento[] estabelecimentosFavoritos;
     /*private NivelUsuario nivelUsuario;
     private ConquistaDesbloqueada[] conquistaDesbloqueada;
     private EstabelecimentosFavoritos[] estabelecimentosFavoritos;*/
@@ -25,7 +26,18 @@ public class Usuario {
         setId(id);
     }
 
+
     public Usuario(String senha, String apelido, String sobrenome, String pronome, String email, String nome, Long id, Foto foto) {
+        setSenha(senha);
+        setApelido(apelido);
+        setSobrenome(sobrenome);
+        setEmail(email);
+        setNome(nome);
+        setId(id);
+        setFoto(foto);
+    }
+
+    public Usuario(String senha, String apelido, String sobrenome, String pronome, String email, String nome, Long id, Foto foto, Estabelecimento estabelecimentosFavoritos[]) {
         setSenha(senha);
         setApelido(apelido);
         setSobrenome(sobrenome);

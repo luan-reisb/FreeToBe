@@ -3,12 +3,12 @@ package br.senac.modelo.entidade;
 public class Foto {
     private Long id;
     private String nomeArquivo;
-    private byte[] coteudoFoto;
+    private byte[] conteudoFoto;
 
     public Foto(Long id, String nomeArquivo, byte[] conteudoFoto){
         setId(id);
         setNomeArquivo(nomeArquivo);
-        setCoteudoFoto(conteudoFoto);
+        setConteudoFoto(conteudoFoto);
     }
 
     public Long getId() {
@@ -27,11 +27,11 @@ public class Foto {
         this.nomeArquivo = nomeArquivo;
     }
 
-    public byte[] getCoteudoFoto() {
-        return coteudoFoto;
+    public byte[] getConteudoFoto() {
+        return conteudoFoto;
     }
 
-    public void setCoteudoFoto(byte[] coteudoFoto) {
-        this.coteudoFoto = coteudoFoto;
+    public void setConteudoFoto(byte[] conteudoFoto) {
+        this.conteudoFoto = conteudoFoto;
     }
 }
