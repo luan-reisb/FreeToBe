@@ -5,8 +5,10 @@ import br.senac.modelo.entidade.Foto;
 import br.senac.modelo.factory.conexao.ConexaoFactory;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 
 public class FotoDAOImp implements FotoDAO{
@@ -21,8 +23,8 @@ public class FotoDAOImp implements FotoDAO{
 
         String sql = "INSERT INTO foto (id, caminhoArquivo, conteudoFoto) VALUES (?, ?, ?)";
 
-        try (Connection conn = conexao.getConexao();
-             PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+        try (Connection connection = conexao.getConexao();
+             PreparedStatement stmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
 
             stmt.setLong(1, foto.getId());
             stmt.setString(2, foto.getCaminhoArquivo());
@@ -45,8 +47,8 @@ public class FotoDAOImp implements FotoDAO{
     public void deletarFoto(Foto foto) {
         String sql = "DELETE FROM foto WHERE id = ?";
 
-        try (Connection conn = conexao.getConexao();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
+        try (Connection connection = conexao.getConexao();
+             PreparedStatement stmt = connection.prepareStatement(sql)) {
 
             stmt.setLong(1, foto.getId());
             int rowsAffected = stmt.executeUpdate();
@@ -67,8 +69,8 @@ public class FotoDAOImp implements FotoDAO{
     public void atualizarFoto(Foto foto) {
         String sql = "UPDATE foto SET caminhoArquivo = ?, conteudoFoto = ? WHERE id = ?";
 
-        try (Connection conn = conexao.getConexao();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
+        try (Connection connection = conexao.getConexao();
+             PreparedStatement stmt = connection.prepareStatement(sql)) {
 
             stmt.setString(1, foto.getCaminhoArquivo());
             stmt.setBytes(2, foto.getConteudoFoto());
@@ -93,8 +95,8 @@ public class FotoDAOImp implements FotoDAO{
         String sql = "SELECT id, caminhoArquivo, conteudoFoto FROM foto WHERE id = ?";
         //Foto foto = null;
 
-        try (Connection conn = conexao.getConexao();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
+        try (Connection connection = conexao.getConexao();
+             PreparedStatement stmt = connection.prepareStatement(sql)) {
 
             stmt.setLong(1, foto.getId());
 
