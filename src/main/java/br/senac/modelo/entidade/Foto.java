@@ -2,12 +2,12 @@ package br.senac.modelo.entidade;
 
 public class Foto {
     private Long id;
-    private String caminhoArquivo;
+    private String nomeArquivo;
     private byte[] conteudoFoto;
 
     public Foto(Long id, String nomeArquivo, byte[] conteudoFoto){
         setId(id);
-        setCaminhoArquivo(nomeArquivo);
+        setNomeArquivo(nomeArquivo);
         setConteudoFoto(conteudoFoto);
     }
 
@@ -19,12 +19,12 @@ public class Foto {
         this.id = id;
     }
 
-    public String getCaminhoArquivo() {
-        return caminhoArquivo;
+    public String getNomeArquivo() {
+        return nomeArquivo;
     }
 
-    public void setCaminhoArquivo(String caminhoArquivo) {
-        this.caminhoArquivo = caminhoArquivo;
+    public void setNomeArquivo(String nomeArquivo) {
+        this.nomeArquivo = nomeArquivo;
     }
 
     public byte[] getConteudoFoto() {

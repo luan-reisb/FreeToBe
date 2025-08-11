@@ -27,7 +27,7 @@ public class FotoDAOImp implements FotoDAO{
              PreparedStatement stmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
 
             stmt.setLong(1, foto.getId());
-            stmt.setString(2, foto.getCaminhoArquivo());
+            stmt.setString(2, foto.getNomeArquivo());
             stmt.setBytes(3, foto.getConteudoFoto());
             stmt.executeUpdate();
             stmt.close();
@@ -72,7 +72,7 @@ public class FotoDAOImp implements FotoDAO{
         try (Connection connection = conexao.getConexao();
              PreparedStatement stmt = connection.prepareStatement(sql)) {
 
-            stmt.setString(1, foto.getCaminhoArquivo());
+            stmt.setString(1, foto.getNomeArquivo());
             stmt.setBytes(2, foto.getConteudoFoto());
             stmt.setLong(3, foto.getId());
 
@@ -104,7 +104,7 @@ public class FotoDAOImp implements FotoDAO{
                 if (rs.next()) {
                    // foto = new Foto();
                     foto.setId(rs.getLong("id"));
-                    foto.setCaminhoArquivo(rs.getString("caminhoArquivo"));
+                    foto.setNomeArquivo(rs.getString("caminhoArquivo"));
                     foto.setConteudoFoto(rs.getBytes("conteudoFoto"));
                 } else {
                     System.out.println("Nenhuma foto encontrada com o ID fornecido.");
