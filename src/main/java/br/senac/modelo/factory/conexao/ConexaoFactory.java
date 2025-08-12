@@ -9,9 +9,9 @@ public class ConexaoFactory {
     public static Connection getConexao() {
         try {
             return DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/seu_banco",
-                    "seu_usuario",
-                    "sua_senha"
+                    "jdbc:mysql://localhost:3306/freetobee",
+                    "root",
+                    "root"
             );
         } catch (SQLException e) {
             throw new RuntimeException("Erro na conexão com o banco de dados", e);

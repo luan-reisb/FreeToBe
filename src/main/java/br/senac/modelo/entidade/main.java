@@ -6,6 +6,6 @@ import br.senac.modelo.entidade.Usuario;
 public class main {
 
 
-    Usuario usuario = new Usuario("senha123", "apelido", "Silva", "ele/dele", "email@exemplo.com", "João", 1L);
+    Usuario usuario = new Usuario("x", "String apelido", "String sobrenome", "String nome", "String email");
 }
 

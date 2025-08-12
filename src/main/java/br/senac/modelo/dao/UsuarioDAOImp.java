@@ -2,6 +2,7 @@ package br.senac.modelo.dao;
 
 import br.senac.modelo.entidade.Usuario;
 import br.senac.modelo.factory.conexao.ConexaoFactory;
+import br.senac.modelo.entidade.Usuario;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -109,21 +110,20 @@ public class UsuarioDAOImp implements UsuarioDAO {
         PreparedStatement stmt = null;
         ResultSet rs = null;
 
-        String sql = "SELECT * FROM usuario WHERE id_usuario = ?";
+        String sql = "SELECT * FROM freetobee.usuario WHERE id_usuario = 5";
 
         try {
             stmt = conexao.prepareStatement(sql);
-            stmt.setLong(1, id);
             rs = stmt.executeQuery();
 
             if (rs.next()) {
                 usuario = new Usuario();
-                usuario.setId(rs.getLong("id_usuario"));
+                //usuario.setId(rs.getLong("id_usuario"));
                 usuario.setNome(rs.getString("nome_usuario"));
                 usuario.setSobrenome(rs.getString("sobrenome_usuario"));
                 usuario.setApelido(rs.getString("apelido_usuario"));
                 usuario.setEmail(rs.getString("email_usuario"));
-                usuario.setSenha(rs.getString("senha_usuario"));
+                /*usuario.setSenha(rs.getString("senha_usuario"));*/
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -141,6 +141,7 @@ public class UsuarioDAOImp implements UsuarioDAO {
         return usuario;
     }
 
+
     @Override
     public List<Usuario> recuperarUsuarios() {
         List<Usuario> usuarios = new ArrayList<>();
@@ -153,7 +154,7 @@ public class UsuarioDAOImp implements UsuarioDAO {
             rs = stmt.executeQuery();
 
             while (rs.next()) {
-                Usuario usuario = new Usuario();
+                Usuario usuario= new Usuario();
                 usuario.setId(rs.getLong("id_usuario"));
                 usuario.setNome(rs.getString("nome_usuario"));
                 usuario.setSobrenome(rs.getString("sobrenome_usuario"));
