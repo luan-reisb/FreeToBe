@@ -22,27 +22,27 @@
       <form>
         <div style="display: flex; flex-direction: column;">
           <label for="nome">Nome:</label>
-          <input type="text" id="nome" name="nome" value="${usuario.nome}">
+          <input type="text" id="nome" name="nome" <c:out value="${usuario.nome}"/>>
         </div>
 
         <div style="display: flex; flex-direction: column;">
           <label for="sobrenome">Sobrenome:</label>
-          <input type="text" id="sobrenome" name="sobrenome" value="${usuario.sobrenome}">
+          <input type="text" id="sobrenome" name="sobrenome" <c:out value="${usuario.sobrenome}"/>>
         </div>
 
         <div style="display: flex; flex-direction: column;">
           <label for="pronome">Pronome:</label>
-          <input type="text" id="pronome" name="pronome" value="${usuario.pronome}">
+          <input type="text" id="pronome" name="pronome" <c:out value="${usuario.pronome}"/>>
         </div>
 
         <div style="display: flex; flex-direction: column;">
           <label for="apelido">Apelido:</label>
-          <input type="text" id="apelido" name="apelido" value="${usuario.apelido}">
+          <input type="text" id="apelido" name="apelido" <c:out value="${usuario.apelido}"/>>
         </div>
 
         <div style="display: flex; flex-direction: column;">
           <label for="email">Email:</label>
-          <input type="email" id="email" name="email" value="${usuario.email}">
+          <input type="email" id="email" name="email" <c:out value="${usuario.email}"/>>
         </div>
 
       </form>
