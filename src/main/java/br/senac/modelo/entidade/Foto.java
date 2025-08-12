@@ -34,5 +34,4 @@ public class Foto {
     public void setConteudoFoto(byte[] conteudoFoto) {
         this.conteudoFoto = conteudoFoto;
     }
-
 }

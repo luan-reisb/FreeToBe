@@ -101,4 +101,5 @@ public class Estabelecimento {
     public void setFoto(Foto foto) {
         this.foto = foto;
     }
+
 }

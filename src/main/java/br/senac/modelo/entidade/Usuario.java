@@ -47,6 +47,10 @@ public class Usuario {
         setFoto(foto);
     }
 
+    public Usuario() {
+
+    }
+
    /* public Usuario(Long id, String nome, String sobrenome, String pronome, String email, String apelido, String senha, Foto foto, NivelUsuario nivelUsuario) {
         setId(id);
         setNome(nome);

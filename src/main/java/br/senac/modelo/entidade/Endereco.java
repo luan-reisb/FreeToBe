@@ -1,6 +1,7 @@
 package br.senac.modelo.entidade;
 
 public class Endereco {
+
     private Long id;
     private String estado;
     private String cidade;
