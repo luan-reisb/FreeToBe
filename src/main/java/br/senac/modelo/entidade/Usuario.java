@@ -30,7 +30,7 @@ public class Usuario {
     }
 
 
-  /* public Usuario(String senha, String apelido, String sobrenome, String pronome, String email, String nome, Long id) {
+   public Usuario(String senha, String apelido, String sobrenome, String pronome, String email, String nome, Long id) {
         setSenha(senha);
         setApelido(apelido);
         setSobrenome(sobrenome);
@@ -39,6 +39,14 @@ public class Usuario {
         setId(id);
     }
 
+    public Usuario(String senha, String sobrenome, String email, String nome, Long id) {
+        setSenha(senha);
+        setSobrenome(sobrenome);
+        setEmail(email);
+        setNome(nome);
+        setId(id);
+    }
+/*
 
     public Usuario(String senha, String apelido, String sobrenome, String pronome, String email, String nome, Long id, Foto foto) {
         setSenha(senha);

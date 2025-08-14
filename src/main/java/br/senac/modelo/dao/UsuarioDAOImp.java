@@ -104,43 +104,63 @@ public class UsuarioDAOImp implements UsuarioDAO {
         }
     }
 
+
     @Override
     public Usuario recuperarUsuario(long id) {
         Usuario usuario = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
 
-        String sql = "SELECT * FROM freetobee.usuario WHERE id_usuario = 5";
+        String sql = "SELECT * FROM freetobee.usuario WHERE id_usuario = ?";
 
         try {
             stmt = conexao.prepareStatement(sql);
+            stmt.setLong(1, id);
             rs = stmt.executeQuery();
 
             if (rs.next()) {
                 usuario = new Usuario();
-                //usuario.setId(rs.getLong("id_usuario"));
+                usuario.setId(rs.getLong("id_usuario"));
                 usuario.setNome(rs.getString("nome_usuario"));
                 usuario.setSobrenome(rs.getString("sobrenome_usuario"));
                 usuario.setApelido(rs.getString("apelido_usuario"));
                 usuario.setEmail(rs.getString("email_usuario"));
-                /*usuario.setSenha(rs.getString("senha_usuario"));*/
             }
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
-            try {
-                if (rs != null)
-                    rs.close();
-                if (stmt != null)
-                    stmt.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
         }
-
         return usuario;
     }
 
+    @Override
+
+    public Usuario buscarPorEmailESenha(String email, String senha) {
+        Usuario usuario = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        String sql = "SELECT * FROM freetobee.usuario WHERE email_usuario = ? AND senha_usuario = ?";
+
+        try {
+            stmt = conexao.prepareStatement(sql);
+            stmt.setString(1, email);
+            stmt.setString(2, senha);
+
+            rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                usuario = new Usuario();
+                usuario.setId(rs.getLong("id_usuario"));
+                usuario.setNome(rs.getString("nome_usuario"));
+                usuario.setSobrenome(rs.getString("sobrenome_usuario"));
+                usuario.setApelido(rs.getString("apelido_usuario"));
+                usuario.setEmail(rs.getString("email_usuario"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return usuario;
+    }
 
     @Override
     public List<Usuario> recuperarUsuarios() {

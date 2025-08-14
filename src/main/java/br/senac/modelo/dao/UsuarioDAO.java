@@ -12,7 +12,9 @@ public interface UsuarioDAO {
 
     void editarUsuario (Usuario usuario);
 
-    public Usuario recuperarUsuario(long id);
+    Usuario recuperarUsuario(long id);
+
+    Usuario buscarPorEmailESenha(String email, String senha);
 
     List<Usuario> recuperarUsuarios();
 
