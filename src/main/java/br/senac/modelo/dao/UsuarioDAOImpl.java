@@ -2,7 +2,6 @@ package br.senac.modelo.dao;
 
 import br.senac.modelo.entidade.Usuario;
 import br.senac.modelo.factory.conexao.ConexaoFactory;
-import br.senac.modelo.entidade.Usuario;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -12,11 +11,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UsuarioDAOImp implements UsuarioDAO {
+public class UsuarioDAOImpl implements UsuarioDAO {
 
     private Connection conexao;
 
-    public UsuarioDAOImp() {
+    public UsuarioDAOImpl() {
         conexao = new ConexaoFactory().getConexao();
     }
 

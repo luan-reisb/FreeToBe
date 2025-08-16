@@ -2,7 +2,6 @@ package br.senac.controle.servlet;
 
 
 import java.io.IOException;
-import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import br.senac.modelo.dao.UsuarioDAO;
-import br.senac.modelo.dao.UsuarioDAOImp;
+import br.senac.modelo.dao.UsuarioDAOImpl;
 import br.senac.modelo.entidade.Usuario;
 
 
@@ -25,7 +24,7 @@ public class UsuarioServlet extends HttpServlet {
     private UsuarioDAO dao;
 
     public void init() {
-        dao = new UsuarioDAOImp();
+        dao = new UsuarioDAOImpl();
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -72,7 +71,7 @@ public class UsuarioServlet extends HttpServlet {
         String email = request.getParameter("email");
         String senha = request.getParameter("senha");
 
-        UsuarioDAO usuarioDAO = new UsuarioDAOImp();
+        UsuarioDAO usuarioDAO = new UsuarioDAOImpl();
         Usuario usuario = usuarioDAO.buscarPorEmailESenha(email, senha);
 
         if (usuario != null) {

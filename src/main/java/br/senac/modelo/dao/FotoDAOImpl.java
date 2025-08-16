@@ -11,10 +11,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 
-public class FotoDAOImp implements FotoDAO{
+public class FotoDAOImpl implements FotoDAO{
     private ConexaoFactory conexao;
 
-    public FotoDAOImp() {
+    public FotoDAOImpl() {
         conexao = new ConexaoFactory();
     }
 

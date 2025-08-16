@@ -1,6 +1,7 @@
 package br.senac.modelo.entidade;
 
-import br.senac.modelo.entidade.Foto;
+
+import br.senac.modelo.entidade.ConquistaUsuario;
 
 public class Usuario {
     private Long id;
@@ -11,117 +12,64 @@ public class Usuario {
     private String apelido;
     private String senha;
     private Foto foto;
-    /*private Estabelecimento[] estabelecimentosFavoritos;
-    private NivelUsuario nivelUsuario;
-    private ConquistaDesbloqueada[] conquistaDesbloqueada;
-    private EstabelecimentosFavoritos[] estabelecimentosFavoritos;*/
+    private int pontosUsuario;
+    public ConquistaUsuario[] conquistas;
+    private Estabelecimento[] estabelecimentosCadastrados;
+   /* private ConquistaDesbloqueada[] conquistaDesbloqueada;*/
+    private Estabelecimento[] estabelecimentosFavoritos;
 
     public Usuario(){
 
     }
 
+    public Usuario (int pontosUsuario){
+        setPontosUsuario(pontosUsuario);
+    }
 
-    public Usuario(String senha, String apelido, String sobrenome, String nome, String email) {
-        setSenha(senha);
+    public Usuario(ConquistaUsuario[] conquistas) {
+       setConquistas(conquistas);
+    }
+
+
+
+    public Usuario(Long id, String nome, String sobrenome, String email, String apelido, String senha) {
+        setId(id);
+        setNome(nome);
+        setSobrenome(sobrenome);
+        setEmail(email);
         setApelido(apelido);
-        setSobrenome(sobrenome);
-        setNome(nome);
-        setEmail(email);
-    }
-
-
-   public Usuario(String senha, String apelido, String sobrenome, String pronome, String email, String nome, Long id) {
         setSenha(senha);
-        setApelido(apelido);
-        setSobrenome(sobrenome);
-        setEmail(email);
-        setNome(nome);
-        setId(id);
     }
 
-    public Usuario(String senha, String sobrenome, String email, String nome, Long id) {
-        setSenha(senha);
-        setSobrenome(sobrenome);
-        setEmail(email);
-        setNome(nome);
-        setId(id);
-    }
-/*
-
-    public Usuario(String senha, String apelido, String sobrenome, String pronome, String email, String nome, Long id, Foto foto) {
-        setSenha(senha);
-        setApelido(apelido);
-        setSobrenome(sobrenome);
-        setEmail(email);
-        setNome(nome);
-        setId(id);
-        setFoto(foto);
-    }
-
-    public Usuario(String senha, String apelido, String sobrenome, String pronome, String email, String nome, Long id, Foto foto, Estabelecimento estabelecimentosFavoritos[]) {
-        setSenha(senha);
-        setApelido(apelido);
-        setSobrenome(sobrenome);
-        setEmail(email);
-        setNome(nome);
-        setId(id);
-        setFoto(foto);
-    }
-
-    public Usuario() {
-
-    }
-
-    public Usuario(Long id, String nome, String sobrenome, String pronome, String email, String apelido, String senha, Foto foto, NivelUsuario nivelUsuario) {
+    /*public Usuario(Long id, String nome, String sobrenome, String pronome, String email, String apelido, String senha, Foto foto, int pontosUsuario, Estabelecimento[] estabelecimentosCadastrados, ConquistaDesbloqueada[] conquistaDesbloqueada, Estabelecimento[] estabelecimentosFavoritos) {
         setId(id);
         setNome(nome);
         setSobrenome(sobrenome);
+        setPronome(pronome);
         setEmail(email);
         setApelido(apelido);
         setSenha(senha);
         setFoto(foto);
-        setNivelUsuario(nivelUsuario);
-    }
-
-    public Usuario(Long id, String nome, String sobrenome, String pronome, String email, String apelido, String senha, Foto foto, NivelUsuario nivelUsuario, ConquistaDesbloqueada[] conquistaDesbloqueada) {
-        setId(id);
-        setNome(nome);
-        setSobrenome(sobrenome);
-        setEmail(email);
-        setApelido(apelido);
-        setSenha(senha);
-        setFoto(foto);
-        setNivelUsuario(nivelUsuario);
-        setConquistaDesbloqueada(conquistaDesbloqueada);
-    }
-
-    public Usuario(Long id, String nome, String sobrenome, String pronome, String email, String apelido, String senha, Foto foto, NivelUsuario nivelUsuario, ConquistaDesbloqueada[] conquistaDesbloqueada, EstabelecimentosFavoritos[] estabelecimentosFavoritos) {
-        setId(id);
-        setNome(nome);
-        setSobrenome(sobrenome);
-        setEmail(email);
-        setApelido(apelido);
-        setSenha(senha);
-        setFoto(foto);
-        setNivelUsuario(nivelUsuario);
+        setPontosUsuario(pontosUsuario);
+        setEstabelecimentosCadastrados(estabelecimentosCadastrados);
         setConquistaDesbloqueada(conquistaDesbloqueada);
         setEstabelecimentosFavoritos(estabelecimentosFavoritos);
     }*/
 
-    public String getSenha() {
-        return senha;
+    public Long getId() {
+        return id;
     }
 
-    public void setSenha(String senha) {
-        this.senha = senha;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public String getApelido() {
-        return apelido;
+    public String getNome() {
+        return nome;
     }
 
-    public void setApelido(String apelido) {
-        this.apelido = apelido;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public String getSobrenome() {
@@ -148,20 +96,20 @@ public class Usuario {
         this.email = email;
     }
 
-    public String getNome() {
-        return nome;
+    public String getApelido() {
+        return apelido;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setApelido(String apelido) {
+        this.apelido = apelido;
     }
 
-    public Long getId() {
-        return id;
+    public String getSenha() {
+        return senha;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 
     public Foto getFoto() {
@@ -172,29 +120,58 @@ public class Usuario {
         this.foto = foto;
     }
 
-    /*public NivelUsuario getNivelUsuario() {
-        return nivelUsuario;
+    public int getPontosUsuario() {
+        return pontosUsuario;
     }
 
-    public void setNivelUsuario(NivelUsuario nivelUsuario) {
-        this.nivelUsuario = nivelUsuario;
+    public void setPontosUsuario(int pontosUsuario) {
+        pontosUsuario = pontosUsuario;
     }
 
-    public ConquistaDesbloqueada[] getConquistaDesbloqueada() {
+    public Estabelecimento[] getEstabelecimentosCadastrados() {
+        return estabelecimentosCadastrados;
+    }
+
+    public void setEstabelecimentosCadastrados(Estabelecimento[] estabelecimentosCadastrados) {
+        this.estabelecimentosCadastrados = estabelecimentosCadastrados;
+    }
+
+   /* public ConquistaDesbloqueada[] getConquistaDesbloqueada() {
         return conquistaDesbloqueada;
     }
 
     public void setConquistaDesbloqueada(ConquistaDesbloqueada[] conquistaDesbloqueada) {
         this.conquistaDesbloqueada = conquistaDesbloqueada;
-    }
+    }*/
 
-    public EstabelecimentosFavoritos[] getEstabelecimentosFavoritos() {
+    public Estabelecimento[] getEstabelecimentosFavoritos() {
         return estabelecimentosFavoritos;
     }
 
-    public void setEstabelecimentosFavoritos(EstabelecimentosFavoritos[] estabelecimentosFavoritos) {
+    public void setEstabelecimentosFavoritos(Estabelecimento[] estabelecimentosFavoritos) {
         this.estabelecimentosFavoritos = estabelecimentosFavoritos;
-    }*/
+    }
 
+
+    public void setConquistas(ConquistaUsuario[] conquistas) {
+        this.conquistas = conquistas;
+    }
+
+    public ConquistaUsuario[] getConquistas() {
+        return conquistas;
+    }
+
+    public void pontosUsuario(int pontos) {
+        this.pontosUsuario += pontos;
+    }
+
+
+    public boolean possuiConquista(ConquistaUsuario conquista) {
+
+    }
+
+    public void conquistaUsuario(ConquistaUsuario[] conquistas){
+
+    }
 }
 

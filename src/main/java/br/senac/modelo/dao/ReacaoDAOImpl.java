@@ -6,10 +6,10 @@ import br.senac.modelo.factory.conexao.ConexaoFactory;
 
 import java.sql.*;
 
-public class ReacaoDAOImp implements ReacaoDAO {
+public class ReacaoDAOImpl implements ReacaoDAO {
     private ConexaoFactory conexao;
 
-    public ReacaoDAOImp() {
+    public ReacaoDAOImpl() {
         conexao = new ConexaoFactory();
     }
 
